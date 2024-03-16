@@ -34,9 +34,13 @@ func main() {
 	e.Renderer = newTemplate()
 
 	e.GET("/", func(c echo.Context) error {
+		return c.Render(200, "index", count)
+	})
+
+	e.POST("/", func(c echo.Context) error {
 		count.Count++
 		return c.Render(200, "index", count)
 	})
 
-	e.Logger.Fatal(e.Start(":1323"))
+	e.Logger.Fatal(e.Start(":8080"))
 }
