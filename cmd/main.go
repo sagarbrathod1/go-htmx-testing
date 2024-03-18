@@ -37,10 +37,10 @@ func main() {
 		return c.Render(200, "index", count)
 	})
 
-	e.POST("/", func(c echo.Context) error {
+	e.POST("/count", func(c echo.Context) error {
 		count.Count++
-		return c.Render(200, "index", count)
+		return c.Render(200, "count", count)
 	})
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":5000"))
 }
